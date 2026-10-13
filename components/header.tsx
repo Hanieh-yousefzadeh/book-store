@@ -7,11 +7,12 @@ export default function Header() {
             <div className="flex">
                 <Link href="/" className="flex"><BookOpenCheck />Rbook</Link>
                 <input type="text" className="border rounded-2xl" ></input>
-                <Link href="/login">login</Link>
+                <Link href="/login">Login</Link>
+                <Link href="/profile">Profile</Link>
                 <Link href="/cart"><ShoppingCart /></Link>
             </div>
             <div className="flex gap-8">
-                <Link href="/">Show all</Link>
+                <Link href="/categoris">Show all</Link>
                 <Link href="/categoris/stories">Stories and Novels</Link>
                 <Link href="/categoris/Scientific">Scientific</Link>
                 <Link href="/categoris/Historic">Historic</Link>
