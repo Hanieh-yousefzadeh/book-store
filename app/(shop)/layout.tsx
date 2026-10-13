@@ -3,9 +3,9 @@ import Header from "@/components/header"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="lg:px-10">
+        <div className="">
             <Header />
-            {children}
+           <div className="lg:min-h-200"> {children}</div>
             <Footer />
         </div>
     )
