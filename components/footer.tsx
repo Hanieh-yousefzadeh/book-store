@@ -2,7 +2,7 @@
 export default function Footer() {
     return (
 
-        <footer className=" flex items-baseline justify-between bg-base-200 text-base-content py-10">
+        <footer className=" flex items-baseline justify-between bg-base-200 text-base-content p-10">
             <aside>
                 <svg
                     width="50"
