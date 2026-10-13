@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { BookOpenCheck, ShoppingCart } from "lucide-react"
+import SearchBook from "@/components/search"
 
 export default function Header() {
     return (
         <nav className="flex flex-col pt-5 gap-5 lg:px-10">
             <div className="flex justify-between">
                 <Link href="/" className="flex"><BookOpenCheck />ReadB</Link>
-                <input type="text" className="border rounded-2xl w-120" ></input>
+                <SearchBook/>
                 <div className="flex gap-5">
                     <Link href="/login">Login</Link>
                     <Link href="/profile">Profile</Link>
