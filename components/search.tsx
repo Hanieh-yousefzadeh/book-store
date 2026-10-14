@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react"
 import{ X} from "lucide-react"
+import Link from "next/link"
 
 
-type book = {
+export type book = {
     key: string
     title: string
     author_name?: string[]
@@ -37,6 +38,8 @@ export default function SearchBook() {
                 }
 
                 const data = await response.json()
+                console.log(data)
+                console.log(data.docs)
                 setResult(data.docs)
             } catch (error) {
                 setResult([])
@@ -63,14 +66,14 @@ export default function SearchBook() {
             {result.length > 0 &&
                 <div className="max-h-80 overflow-y-auto w-120  absolute z-1  grid gap-5 p-5 bg-[#EAE3F4]">
                     {result.map((book) => (
-                        <div key={book.key} className="flex" >
+                        <Link key={book.key} href={`book/${book.key.split("/").pop()}`} className="flex" >
                             {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`} />) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} />}
                             <div className="pl-3 text-sm font-semibold">
                                 <h3>{book.title}</h3>
                                 <p className="line-clamp-1"> Author: {book.author_name?.join(", ")}</p>
                             </div>
 
-                        </div>
+                        </Link>
                     ))
                     }
                 </div>}
