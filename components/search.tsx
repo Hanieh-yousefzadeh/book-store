@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import{Divide, X} from "lucide-react"
+import{ X} from "lucide-react"
 
 
 type book = {
@@ -57,11 +57,11 @@ export default function SearchBook() {
     return (
         <div className="">
             <div className="flex border rounded-2xl w-120">
-                <input type="text" className="outline-none w-120" value={search} onChange={handleInput} placeholder="search a book" />
+                <input type="text" className="outline-none w-120 px-2 py-2" value={search} onChange={handleInput} placeholder="search a book" />
                 {result.length > 0 && (<button onClick={deleteSearch} className="cursor-pointer"><X/></button>)}
             </div>
             {result.length > 0 &&
-                <div className="max-h-80 overflow-y-auto w-120  absolute z-1  grid gap-5 p-5 bg-[#e5d8d8]">
+                <div className="max-h-80 overflow-y-auto w-120  absolute z-1  grid gap-5 p-5 bg-[#EAE3F4]">
                     {result.map((book) => (
                         <div key={book.key} className="flex" >
                             {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`} />) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} />}
