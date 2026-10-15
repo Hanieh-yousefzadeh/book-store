@@ -1,6 +1,5 @@
 import AllBooks from "@/components/allbook";
 import type { book } from "@/types/book";
-import Link from "next/link"
 
 
 export default async function ShowAllBook() {

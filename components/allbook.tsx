@@ -52,7 +52,7 @@ export default function AllBooks({initialBooks}:{initialBooks : book[]}) {
                 ))}
             </div>
             {error && (<p className="text-error mt-4">{error}</p>)}
-            <button onClick={loadmore} className="btn btn-primary"  > {loading ? "Loading..." : "Load More"}  </button>
+            <button onClick={loadmore} disabled={loading} className="btn btn-primary"> {loading ? "Loading..." : "Load More"}  </button>
         </div>
     )
 
