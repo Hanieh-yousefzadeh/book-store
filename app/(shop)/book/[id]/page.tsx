@@ -5,7 +5,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
     const { id } = await params
     console.log(id)
 
-    const response = await fetch(`https://openlibrary.org/work/${id}.json`)
+    const response = await fetch(`https://openlibrary.org/works/${id}.json`)
     if (!response.ok) {
         return <p>Book not found</p>
     }

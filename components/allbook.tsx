@@ -41,11 +41,11 @@ export default function AllBooks({initialBooks}:{initialBooks : book[]}) {
             <div>
                 {books.map((book) => (
 
-                    <Link key={book.key} href={`/books/${book.key.split("/").pop()}`}>
-                        {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`} />) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} />}
+                    <Link key={book.key} href={`/book/${book.key.split("/").pop()}`}>
+                        {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} />) : <img src={`https://covers.openlibrary.org/b/id/240720-M.jpg`} />}
                         <div className="pl-3 text-sm font-semibold">
                             <h3>{book.title}</h3>
-                            <p className="line-clamp-1"> Author: {book.author_name?.join(", ")}</p>
+                            <p className=""> Author: {book.author_name?.join(", ")}</p>
                         </div>
                     </Link>
 
