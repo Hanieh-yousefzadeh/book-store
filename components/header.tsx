@@ -42,7 +42,7 @@ export default function Header() {
                     <Theme/>
                     {/* <Link href="/profile">Profile</Link> */}
 
-                    {/* <Link href="/cart"><ShoppingCart /></Link> */}
+                    <Link href="/cart"><ShoppingCart /></Link>
                 </div>
             </div>
             <Suspense fallback={<div className="flex justify-center">Loading...</div>}>
