@@ -1,5 +1,6 @@
 import AllBooks from "@/components/allbook";
 import type { book } from "@/types/book";
+import { notFound } from "next/navigation";
 
 
 export default async function ShowAllBook() {
@@ -8,7 +9,7 @@ export default async function ShowAllBook() {
 
 
     if (!response.ok) {
-        throw new Error("Failed to fetch books")
+        notFound()
     }
     const data = await response.json()
     console.log(data)

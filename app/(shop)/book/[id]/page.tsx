@@ -1,5 +1,6 @@
 
 import LikeButton from "@/components/likeButton"
+import { notFound } from "next/navigation";
 
 export default async function DetailBook({ params }: { params: Promise<{ id: string }> }) {
 
@@ -8,7 +9,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
 
     const response = await fetch(`https://openlibrary.org/works/${id}.json`)
     if (!response.ok) {
-        return <p>Book not found</p>
+        notFound()
     }
     const data = await response.json()
     console.log(data)
