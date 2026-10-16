@@ -1,25 +1,26 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import type { FavoriteBook } from "@/types/book";
 
 type FavoriteState = {
-    ids: string[]
+     books: FavoriteBook[]
 }
 
-const initialState: FavoriteState = { ids: [] };
+const initialState: FavoriteState = {  books: [] };
 
 const favoriteSlice = createSlice({
     name: "favorite",
     initialState,
     reducers: {
-        toggleFavorite: (state, action: PayloadAction<string>) => {
-            const id = action.payload
+        toggleFavorite: (state, action: PayloadAction<FavoriteBook>) => {
+            const book = action.payload
 
-            if (state.ids.includes(id)) {
-                state.ids = state.ids.filter((favoriteId) => favoriteId !== id)
+            if (state.books.includes(book)) {
+                state.books = state.books.filter((item) => item.key !== book.key)
             } else {
-                state.ids.push(id);
+               state.books.push(book)
             }
         },
-        saveFavorites: (state, action: PayloadAction<string[]>) => { state.ids = action.payload }
+        saveFavorites: (state, action: PayloadAction<FavoriteBook[]>) => { state.books = action.payload }
     }
 })
 export const {toggleFavorite , saveFavorites} = favoriteSlice.actions

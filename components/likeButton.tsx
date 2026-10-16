@@ -1,17 +1,18 @@
 "use client"
 
 
-import { useDispatch, UseDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { stateType, dispatch } from "@/lib/store"
 import { toggleFavorite, saveFavorites } from "@/lib/favoriteSlice"
 import { useEffect, useState } from "react"
 import { Heart, CircleX } from "lucide-react"
 import Link from "next/link"
+import type { FavoriteBook } from "@/types/book"
 
-export default function LikeButton({ bookId }: { bookId: string }) {
+export default function LikeButton({book}: { book: FavoriteBook }) {
     const dispatch = useDispatch<dispatch>()
     const isLogin = useSelector((state: stateType) => Boolean(state.auth.user))
-    const favoriteIds = useSelector((state: stateType) => state.favorite.ids)
+    const favoriteBooks = useSelector((state: stateType) => state.favorite.books)
 
     const [showModal, setShowModal] = useState(false)
     const [prev, setPreve] = useState(false)
@@ -19,7 +20,7 @@ export default function LikeButton({ bookId }: { bookId: string }) {
     ///get prev favorite
 
     useEffect(() => {
-        const saved = localStorage.getItem("favoriteIds")
+        const saved = localStorage.getItem("favoriteBooks")
         if (saved) {
             dispatch(saveFavorites(JSON.parse(saved)))
         }
@@ -30,18 +31,18 @@ export default function LikeButton({ bookId }: { bookId: string }) {
 
     useEffect(() => {
         if (prev) {
-            localStorage.setItem("favoriteIds", JSON.stringify(favoriteIds))
+            localStorage.setItem("favoriteBooks", JSON.stringify(favoriteBooks))
         }
-    }, [favoriteIds, prev])
+    }, [favoriteBooks, prev])
 
-    const isFavorite = favoriteIds.includes(bookId);
+    const isFavorite = favoriteBooks.includes(book);
 
     function handleFavorite() {
         if (!isLogin) {
             setShowModal(true);
             return;
         }
-        dispatch(toggleFavorite(bookId));
+        dispatch(toggleFavorite(book));
     }
 
     function handleModal() {

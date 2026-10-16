@@ -1,6 +1,6 @@
 
 import CategoryBooks from "@/components/categoryBooks";
-import type { CategoryBook } from "@/types/categorybook";
+import type { CategoryBook } from "@/types/book";
 
 
 

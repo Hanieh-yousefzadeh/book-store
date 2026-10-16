@@ -37,7 +37,11 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                 <div>
                     <h1 className="text-3xl font-bold">{data.title} </h1>
                     <p>Author: {authorName}</p>
-                    <LikeButton bookId={id} />
+                    <LikeButton book={{
+                        key: `/works/${id}`,
+                        title: data.title,
+                        cover_id: data.covers[0]
+                    }} />
 
                     <div className="mt-4">
                         <h2 className="font-bold">Description</h2>
@@ -49,7 +53,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
 
                         {data.subjects?.length ? (
                             <div className="flex flex-wrap gap-2 mt-2">
-                                {data.subjects.slice(0,5).map(
+                                {data.subjects.slice(0, 5).map(
                                     (subject: string) => (
                                         <span key={subject} className="rounded-full bg-purple-100 px-3 py-1 text-sm" >
                                             {subject}
@@ -62,8 +66,8 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
 
                     <p className="mt-4"> First published:{data.first_publish_date}  </p>
                     <p>Pages: {edition.number_of_pages}</p>
-                   <p> {edition.languages && ( <span>Language:{edition.languages[0].key.split("/").pop()}</span>)}</p>
-                   <p> {edition.publishers && ( <span>Publisher: {edition.publishers.join(", ")}</span> )}</p>
+                    <p> {edition.languages && (<span>Language:{edition.languages[0].key.split("/").pop()}</span>)}</p>
+                    <p> {edition.publishers && (<span>Publisher: {edition.publishers.join(", ")}</span>)}</p>
                 </div>
             </div>
         </div>

@@ -30,6 +30,7 @@ export default function Header() {
                 <div className="flex gap-5 items-center">
                      {user ? ( <button className="cursor-pointer" onClick={handleLogout}> Logout </button> ) : (<Link href="/login"> Login </Link> )}
                     <Link href="/profile">Profile</Link>
+                    <Link href="/favorite">Favorite</Link>
                     <Link href="/cart"><ShoppingCart /></Link>
                 </div>
             </div>
