@@ -1,4 +1,5 @@
 
+import LikeButton from "@/components/likeButton"
 
 export default async function DetailBook({ params }: { params: Promise<{ id: string }> }) {
 
@@ -36,6 +37,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                 <div>
                     <h1 className="text-3xl font-bold">{data.title} </h1>
                     <p>Author: {authorName}</p>
+                    <LikeButton bookId={id} />
 
                     <div className="mt-4">
                         <h2 className="font-bold">Description</h2>
