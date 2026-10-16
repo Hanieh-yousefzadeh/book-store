@@ -34,12 +34,13 @@ export default function Header() {
                 <Link href="/" className="flex"><BookOpenCheck />ReadB</Link>
                 <SearchBook />
                 <div className="flex gap-5 items-center">
+                    <Link href="/favorite">Favorite</Link>
                     {mounted && (
                         user ? (<button className="cursor-pointer" onClick={handleLogout}>Logout</button>) : (<Link href="/login">Login</Link>)
                     )}
-                    <Link href="/profile">Profile</Link>
-                    <Link href="/favorite">Favorite</Link>
-                    <Link href="/cart"><ShoppingCart /></Link>
+                    {/* <Link href="/profile">Profile</Link> */}
+
+                    {/* <Link href="/cart"><ShoppingCart /></Link> */}
                 </div>
             </div>
             <Suspense fallback={<div className="flex justify-center">Loading...</div>}>
