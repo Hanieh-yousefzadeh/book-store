@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useRouter } from "next/navigation";
 import { logout } from "@/lib/authSlice";
 import { stateType, dispatch } from "@/lib/store";
+import Theme from "./theme";
 
 
 export default function Header() {
@@ -38,6 +39,7 @@ export default function Header() {
                     {mounted && (
                         user ? (<button className="cursor-pointer" onClick={handleLogout}>Logout</button>) : (<Link href="/login">Login</Link>)
                     )}
+                    <Theme/>
                     {/* <Link href="/profile">Profile</Link> */}
 
                     {/* <Link href="/cart"><ShoppingCart /></Link> */}
