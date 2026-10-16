@@ -9,7 +9,7 @@ import { Heart, CircleX } from "lucide-react"
 import Link from "next/link"
 import type { FavoriteBook } from "@/types/book"
 
-export default function LikeButton({book}: { book: FavoriteBook }) {
+export default function LikeButton({ book }: { book: FavoriteBook }) {
     const dispatch = useDispatch<dispatch>()
     const isLogin = useSelector((state: stateType) => Boolean(state.auth.user))
     const favoriteBooks = useSelector((state: stateType) => state.favorite.books)
@@ -35,7 +35,7 @@ export default function LikeButton({book}: { book: FavoriteBook }) {
         }
     }, [favoriteBooks, prev])
 
-    const isFavorite = favoriteBooks.includes(book);
+    const isFavorite = favoriteBooks.some((item) => item.key === book.key)
 
     function handleFavorite() {
         if (!isLogin) {
@@ -51,7 +51,7 @@ export default function LikeButton({book}: { book: FavoriteBook }) {
 
     return (
         <div>
-            <span className="cursor-pointer" onClick={handleFavorite}> <Heart  fill={isFavorite ? "#e11d48" : "none"}   color={isFavorite ? "#e11d48" : "currentColor"}/></span>
+            <span className="cursor-pointer" onClick={handleFavorite}> <Heart fill={isFavorite ? "#e11d48" : "none"} color={isFavorite ? "#e11d48" : "currentColor"} /></span>
             {showModal && (
                 <div className="modal modal-open">
                     <div className="modal-box">
