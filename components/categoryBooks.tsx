@@ -1,7 +1,7 @@
 "use client"
 
 
-import type { CategoryBook } from "@/types/categorybook"
+import type { CategoryBook } from "@/types/book"
 import { useState } from "react"
 import Link from "next/link"
 
