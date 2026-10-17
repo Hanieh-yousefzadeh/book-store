@@ -7,7 +7,7 @@ export default function Footer() {
             <aside>
 
                 <p className="pt-8">
-                    <Link href="/" className="flex text-2xl font-semibold items-center"><BookOpenCheck size={35} strokeWidth={1} />ReadB</Link>
+                    <Link href="/" className="flex text-2xl font-semibold items-center text-[#023e8a]"><BookOpenCheck size={35} strokeWidth={1} />ReadB</Link>
                 </p>
             </aside>
             <nav className="flex flex-col text-base">

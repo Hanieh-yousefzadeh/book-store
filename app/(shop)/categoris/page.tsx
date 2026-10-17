@@ -13,8 +13,8 @@ export default async function ShowAllBook() {
     }
    
     return (
-        <main>
-            <h1>All Book</h1>
+        <main className="flex flex-col px-10">
+            <h1 className="text-xl font-semibold pt-5">All Books</h1>
             <AllBooks initialBooks={books} />
         </main>
     )
