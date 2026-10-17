@@ -32,43 +32,52 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
     const edition = editionsData.entries?.[0]
     return (
         <div className="p-8">
-            <div className="flex gap-8">
-                {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg" />)}
+            <div className="flex gap-5">
+                {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg h-110 w-80" />)}
 
-                <div>
-                    <h1 className="text-3xl font-bold">{data.title} </h1>
+                <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                        <h1 className="text-3xl font-bold">{data.title} </h1>
+                        <LikeButton book={{
+                            key: `/works/${id}`,
+                            title: data.title,
+                            cover_id: data.covers[0]
+                        }} />
+                    </div>
                     <p>Author: {authorName}</p>
-                    <LikeButton book={{
-                        key: `/works/${id}`,
-                        title: data.title,
-                        cover_id: data.covers[0]
-                    }} />
 
-                    <div className="mt-4">
+
+                    <div className="mt-3">
                         <h2 className="font-bold">Description</h2>
-                        <p> {description || "No description available"} </p>
+                        <p className="w-250"> {description} </p>
                     </div>
 
-                    <div className="mt-4">
+                    <div className="mt-3">
                         <h2 className="font-bold">Categories</h2>
 
-                        {data.subjects?.length ? (
+                        {data.subjects?.length && (
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {data.subjects.slice(0, 5).map(
                                     (subject: string) => (
-                                        <span key={subject} className="rounded-full bg-purple-100 px-3 py-1 text-sm" >
+                                        <span key={subject} className="rounded-full bg-[#02304710] px-3 py-1 text-sm" >
                                             {subject}
                                         </span>
                                     )
                                 )}
                             </div>
-                        ) : (<p>No categories available</p>)}
+                        )}
                     </div>
 
-                    <p className="mt-4"> First published:{data.first_publish_date}  </p>
-                    <p>Pages: {edition.number_of_pages}</p>
-                    <p> {edition.languages && (<span>Language:{edition.languages[0].key.split("/").pop()}</span>)}</p>
-                    <p> {edition.publishers && (<span>Publisher: {edition.publishers.join(", ")}</span>)}</p>
+                    <div className="flex items-baseline gap-15">
+                        <div className="flex flex-col gap-3">
+                            <p className="mt-4"> <span className="mr-2">First published:</span>{data.first_publish_date}  </p>
+                            <p>Pages: {edition.number_of_pages}</p>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <p> {edition.languages && (<span><span className="mr-2">Language:</span>{edition.languages[0].key.split("/").pop()}</span>)}</p>
+                            <p> {edition.publishers && (<span><span className="mr-2">Publisher:</span> {edition.publishers.join(", ")}</span>)}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

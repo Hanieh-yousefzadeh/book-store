@@ -54,9 +54,9 @@ export default function SearchBook() {
     }
 
     return (
-        <div className="">
-            <div className="flex border rounded-2xl w-120">
-                <input type="text" className="outline-none w-120 px-2 py-2" value={search} onChange={handleInput} placeholder="search a book" />
+        <div className=" flex justify-center">
+            <div className="flex w-120">
+                <input type="text" className="outline-none w-120 px-3 py-3.5 bg-[#FFFFFF] rounded-full" value={search} onChange={handleInput} placeholder="Discover Books. . ." />
                 {result.length > 0 && (<button onClick={deleteSearch} className="cursor-pointer"><X/></button>)}
             </div>
             {result.length > 0 &&

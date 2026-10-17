@@ -1,9 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { BookOpenCheck, ShoppingCart } from "lucide-react"
+import { BookOpenCheck, ShoppingCart, LogOut, Heart ,LogIn } from "lucide-react"
 import { Suspense, useState, useEffect } from "react";
-import SearchBook from "@/components/search"
 import CategoryNav from "./categoryNav"
 import { useDispatch, useSelector } from "react-redux"
 import { useRouter } from "next/navigation";
@@ -30,25 +29,24 @@ export default function Header() {
     }, [])
 
     return (
-        <nav className="flex flex-col pt-5 gap-5 lg:px-10">
-            <div className="flex justify-between">
-                <Link href="/" className="flex"><BookOpenCheck />ReadB</Link>
-                <SearchBook />
+        <nav className="flex flex-col py-8 gap-5 lg:px-10">
+            <div className="flex justify-between items-center">
+                <Link href="/" className="flex text-2xl font-semibold items-center"><BookOpenCheck  size={35} strokeWidth={1}/>ReadB</Link>
+                <Suspense fallback={<div className="flex justify-center">Loading...</div>}>
+                    <CategoryNav />
+                </Suspense>
                 <div className="flex gap-5 items-center">
-                    <Link href="/favorite">Favorite</Link>
+                    <Link href="/favorite"><Heart /></Link>
                     {mounted && (
-                        user ? (<button className="cursor-pointer" onClick={handleLogout}>Logout</button>) : (<Link href="/login">Login</Link>)
+                        user ? (<button className="cursor-pointer" onClick={handleLogout}><LogOut /></button>) : (<Link href="/login"><LogIn/></Link>)
                     )}
-                    <Theme/>
+
                     {/* <Link href="/profile">Profile</Link> */}
 
                     <Link href="/cart"><ShoppingCart /></Link>
+                    <Theme />
                 </div>
             </div>
-            <Suspense fallback={<div className="flex justify-center">Loading...</div>}>
-                <CategoryNav />
-            </Suspense>
-
 
         </nav>
     )

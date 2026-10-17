@@ -1,22 +1,22 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import HomeBooks from "@/components/homebooks";
-
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
 
-    <main>
+    <main className="px-10 pb-30 bg-[]">
       <section>
-        <h1 className="text-2xl font-bold">Discover Books </h1>
+        <Hero />
 
+        <div className="mt-20 flex justify-start ">
+          <Link href="/categoris" className="text-lg font-medium"> Show All Books </Link>
+        </div>
         <Suspense fallback={<p>Loading books...</p>}>
-          <HomeBooks  />
+          <HomeBooks />
         </Suspense>
 
-        <div className="mt-6 flex justify-center">
-          <Link href="/categoris" className="btn "> Show All Books </Link>
-        </div>
       </section>
     </main>
   );
