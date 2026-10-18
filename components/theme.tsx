@@ -6,12 +6,13 @@ import { SunMedium, Moon, Monitor } from "lucide-react"
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { text } from "stream/consumers"
 
 export default function Theme() {
     const { theme, setTheme } = useTheme()
@@ -41,18 +42,32 @@ export default function Theme() {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
+  <DropdownMenuTrigger>
+    <ActiveIcon />
+  </DropdownMenuTrigger>
 
-                <ActiveIcon />
+  <DropdownMenuContent className="text-[#103362]">
+    <DropdownMenuRadioGroup
+      value={theme}
+      onValueChange={(value) => setTheme(value)}
+    >
+      <DropdownMenuRadioItem value="light">
+        <SunMedium />
+        Light
+      </DropdownMenuRadioItem>
 
-            </DropdownMenuTrigger>
+      <DropdownMenuRadioItem value="dark">
+        <Moon />
+        Dark
+      </DropdownMenuRadioItem>
 
-            <DropdownMenuContent >
-                <DropdownMenuItem onClick={() => setTheme("light")}>  <SunMedium /> Light </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}> <Moon /> Dark </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}> <Monitor /> System </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+      <DropdownMenuRadioItem value="system">
+        <Monitor />
+        System
+      </DropdownMenuRadioItem>
+    </DropdownMenuRadioGroup>
+  </DropdownMenuContent>
+</DropdownMenu>
     )
 
 }

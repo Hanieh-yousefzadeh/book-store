@@ -13,7 +13,7 @@ export default function BookList({ books }: { books: book[] }) {
                         <h3 className=" text-base font-semibold line-clamp-1">{book.title}</h3>
                         <div className="flex items-center justify-between pt-3">
                             <p className="line-clamp-1  text-[#1e293bbc] text-sm w-45"> <span className="mr-1.5">By</span>{book.author_name?.join(", ")}</p>
-                            <p className=" font-semibold  text-[#E6E7E4] bg-[#023d8adc] py-1 px-2 rounded-sm">$20.0</p>
+                            <p className=" font-semibold  text-[#E6E7E4] bg-[#02306bd7] py-1 px-2 rounded-sm">$20.0</p>
                         </div>
 
                     </div>

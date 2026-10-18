@@ -1,6 +1,7 @@
 
 import LikeButton from "@/components/likeButton"
 import { notFound } from "next/navigation";
+import { UserRoundPen, Languages, BookOpenText } from "lucide-react"
 
 export default async function DetailBook({ params }: { params: Promise<{ id: string }> }) {
 
@@ -31,28 +32,39 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
     const editionsData = await editionsResponse.json()
     const edition = editionsData.entries?.[0]
     return (
-        <div className="p-8">
-            <div className="flex gap-5">
-                {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg h-110 w-80" />)}
-
+        <div className="px-10 pt-18">
+            <div className="flex gap-9">
                 <div className="flex flex-col gap-3">
-                    <div className="flex items-center justify-between">
-                        <h1 className="text-3xl font-bold">{data.title} </h1>
+                    {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg h-85 w-65" />)}
+                    <div className=" flex  flex-col gap-2">
+                        <p className=" py-1 px-2 font-semibold">$20.0</p>
+                        <button className=" text-[#E6E7E4] bg-[#02306bd7] rounded-lg py-2">BUY</button>
+                        
+                    </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between ">
+                        <h1 className="text-3xl font-bold pt-1">{data.title} </h1>
                         <LikeButton book={{
                             key: `/works/${id}`,
                             title: data.title,
                             cover_id: data.covers[0]
                         }} />
                     </div>
-                    <p>Author: {authorName}</p>
+                    <p className="flex items-center gap-2"><UserRoundPen className="bg-[#02304710] size-7.5 p-1.5 rounded-full" /> {authorName}</p>
 
+                    <div className="flex items-center gap-5 pt-1">
 
-                    <div className="mt-3">
-                        <h2 className="font-bold">Description</h2>
-                        <p className="w-250"> {description} </p>
+                        {/* <p className="mt-4"> <span className="mr-2">First published:</span>{data.first_publish_date}  </p> */}
+                        <p> {edition.publishers && (<span><span className="mr-2 font-medium">Publisher:</span> {edition.publishers.join(", ")}</span>)}</p>
+                        <div className="border-r h-7 border-[#02304761]"></div>
+                        <p> {edition.languages && (<span className="flex"><span className="mr-2"><Languages /></span>{edition.languages[0].key.split("/").pop()}</span>)}</p>
+                        <div className="border-r h-7 border-[#02304761]"></div>
+                        <p className="flex gap-2"><BookOpenText /> pages {edition.number_of_pages}</p>
+
                     </div>
 
-                    <div className="mt-3">
+                    <div className="pt-1">
                         <h2 className="font-bold">Categories</h2>
 
                         {data.subjects?.length && (
@@ -68,16 +80,13 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                         )}
                     </div>
 
-                    <div className="flex items-baseline gap-15">
-                        <div className="flex flex-col gap-3">
-                            <p className="mt-4"> <span className="mr-2">First published:</span>{data.first_publish_date}  </p>
-                            <p>Pages: {edition.number_of_pages}</p>
-                        </div>
-                        <div className="flex flex-col gap-3">
-                            <p> {edition.languages && (<span><span className="mr-2">Language:</span>{edition.languages[0].key.split("/").pop()}</span>)}</p>
-                            <p> {edition.publishers && (<span><span className="mr-2">Publisher:</span> {edition.publishers.join(", ")}</span>)}</p>
-                        </div>
+
+                    <div className="pt-6">
+                        <h2 className="font-bold pb-2">Description</h2>
+                        <p className="w-250 bg-[#02304710] p-5 rounded-xl"> {description} </p>
                     </div>
+
+
                 </div>
             </div>
         </div>
