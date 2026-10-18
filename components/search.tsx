@@ -54,19 +54,19 @@ export default function SearchBook() {
     }
 
     return (
-        <div className="">
-            <div className="flex border rounded-2xl w-120">
-                <input type="text" className="outline-none w-120 px-2 py-2" value={search} onChange={handleInput} placeholder="search a book" />
-                {result.length > 0 && (<button onClick={deleteSearch} className="cursor-pointer"><X/></button>)}
+        <div className=" flex justify-center">
+            <div className="flex w-120 bg-[#FFFFFF] rounded-full">
+                <input type="text" className="outline-none w-120 pl-4 py-3.5 " value={search} onChange={handleInput} placeholder="Discover Books. . ." />
+                {result.length > 0 && (<button onClick={deleteSearch} className="cursor-pointer pr-3"><X/></button>)}
             </div>
             {result.length > 0 &&
-                <div className="max-h-80 overflow-y-auto w-120  absolute z-1  grid gap-5 p-5 bg-[#EAE3F4]">
+                <div className="max-h-50 overflow-y-auto w-120 bottom-18  absolute z-1  grid gap-5 p-5 bg-[#FFFFFF] rounded-2xl">
                     {result.map((book) => (
-                        <Link key={book.key} onClick={deleteSearch} href={`/book/${book.key.split("/").pop()}`} className="flex" >
-                            {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`} />) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} />}
+                        <Link key={book.key} onClick={deleteSearch} href={`/book/${book.key.split("/").pop()}`} className="flex items-center" >
+                            {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`}  className="rounded-xs"/>) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} className="rounded-xs" />}
                             <div className="pl-3 text-sm font-semibold">
                                 <h3>{book.title}</h3>
-                                <p className="line-clamp-1"> Author: {book.author_name?.join(", ")}</p>
+                                <p className="line-clamp-1 text-xs pt-1 text-[#1e293b8e]"> <span className="mr-1.5">By</span>{book.author_name?.join(", ")}</p>
                             </div>
 
                         </Link>

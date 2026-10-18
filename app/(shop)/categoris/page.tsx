@@ -1,23 +1,20 @@
 import AllBooks from "@/components/allbook";
-import type { book } from "@/types/book";
 import { notFound } from "next/navigation";
+import { GetBooks } from "@/api/getbooks";
 
 
 export default async function ShowAllBook() {
 
-    const response = await fetch("https://openlibrary.org/search.json?title=the&limit=20&page=1&fields=key,title,author_name,cover_i")
+    const books = await GetBooks(20);
 
 
-    if (!response.ok) {
+    if (!books) {
         notFound()
     }
-    const data = await response.json()
-    console.log(data)
-    const books: book[] = data.docs
-
+   
     return (
-        <main>
-            <h1>All Book</h1>
+        <main className="flex flex-col px-10">
+            <h1 className="text-xl font-semibold pt-5">All Books</h1>
             <AllBooks initialBooks={books} />
         </main>
     )

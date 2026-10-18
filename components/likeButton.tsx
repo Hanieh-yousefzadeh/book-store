@@ -33,7 +33,7 @@ export default function LikeButton({ book }: { book: FavoriteBook }) {
 
     return (
         <div>
-            <span className="cursor-pointer" onClick={handleFavorite}> <Heart fill={isFavorite ? "#e11d48" : "none"} color={isFavorite ? "#e11d48" : "currentColor"} /></span>
+            <span className="cursor-pointer" onClick={handleFavorite}> <Heart fill={isFavorite ? "#e11d48" : "none"} color={isFavorite ? "#e11d48" : "#062b5ced"} /></span>
             {showModal && (
                 <div className="modal modal-open">
                     <div className="modal-box">
@@ -43,7 +43,7 @@ export default function LikeButton({ book }: { book: FavoriteBook }) {
 
                         </div>
                         <div className="modal-action">
-                            <Link href="/login" className="btn btn-primary"> Login</Link>
+                            <Link href="/login" className=" text-[#E6E7E4] bg-[#02306bd7] rounded-md py-1.5 px-4"> Login</Link>
                         </div>
                     </div>
                 </div>
