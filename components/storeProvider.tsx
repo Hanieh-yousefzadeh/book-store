@@ -1,7 +1,7 @@
 "use client"
 
 import {Provider} from "react-redux"
-import {store} from "@/lib/store"
+import {store} from "@/redux/store"
 import PrevAuth from "./prevAuth"
 import FavoriteSave from "./favoriteSave"
 

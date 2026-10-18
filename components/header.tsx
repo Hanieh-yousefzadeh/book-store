@@ -6,8 +6,8 @@ import { Suspense, useState, useEffect } from "react";
 import CategoryNav from "./categoryNav"
 import { useDispatch, useSelector } from "react-redux"
 import { useRouter } from "next/navigation";
-import { logout } from "@/lib/authSlice";
-import { stateType, dispatch } from "@/lib/store";
+import { logout } from "@/redux/authSlice";
+import { stateType, dispatch } from "@/redux/store";
 import Theme from "./theme";
 
 

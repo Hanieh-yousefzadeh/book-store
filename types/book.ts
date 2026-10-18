@@ -22,5 +22,14 @@ export type FavoriteBook = {
     key: string
     title: string
     cover_id?: number
-   author_name?: string[]
+    author_name?: string[]
+}
+
+export type CartBook = {
+    key: string
+    title: string
+    cover_id?: number
+    author_name?: string[]
+    price: number
+    quantity: number
 }

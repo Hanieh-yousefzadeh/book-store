@@ -2,8 +2,8 @@
 
 
 import { useDispatch, useSelector } from "react-redux"
-import { stateType, dispatch } from "@/lib/store"
-import { toggleFavorite} from "@/lib/favoriteSlice"
+import { stateType, dispatch } from "@/redux/store"
+import { toggleFavorite} from "@/redux/favoriteSlice"
 import { useState } from "react"
 import { Heart, CircleX } from "lucide-react"
 import Link from "next/link"

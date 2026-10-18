@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { restoreUser } from "@/lib/authSlice";
-import type { dispatch } from "@/lib/store";
+import { restoreUser } from "@/redux/authSlice";
+import type { dispatch } from "@/redux/store";
 
 export default function PrevAuth() {
     const dispatch = useDispatch<dispatch>();
