@@ -29,13 +29,13 @@ export default function Header() {
     }, [])
 
     return (
-        <nav className="flex flex-col pt-8 pb-5 gap-5 lg:px-10 border border-b-[#023d8a25">
+        <nav className="flex flex-col pt-8 pb-5 gap-5 lg:px-10 border border-b-[#023d8a0a] bg-[#02304710]">
             <div className="flex justify-between items-center">
                 <Link href="/" className="flex text-2xl font-semibold items-center text-[#023e8a]"><BookOpenCheck  size={35} strokeWidth={1}/>ReadB</Link>
                 <Suspense fallback={<div className="flex justify-center">Loading...</div>}>
                     <CategoryNav />
                 </Suspense>
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-5 items-center text-[#062b5ced]">
                     <Link href="/favorite"><Heart /></Link>
                     {mounted && (
                         user ? (<button className="cursor-pointer" onClick={handleLogout}><LogOut /></button>) : (<Link href="/login"><LogIn/></Link>)

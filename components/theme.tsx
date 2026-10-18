@@ -48,9 +48,9 @@ export default function Theme() {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent >
-                <DropdownMenuItem onClick={() => setTheme("light")}> <SunMedium /> </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}> <Moon />  </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}> <Monitor /> </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("light")}>  <SunMedium /> Light </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}> <Moon /> Dark </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}> <Monitor /> System </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
