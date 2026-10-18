@@ -38,7 +38,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                     {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg h-85 w-65" />)}
                     <div className=" flex  flex-col gap-2">
                         <p className=" py-1 px-2 font-semibold">$20.0</p>
-                        <button className=" text-[#E6E7E4] bg-[#02306bd7] rounded-lg py-2">BUY</button>
+                        <button className=" text-[#E6E7E4] bg-[#02306bd7] rounded-lg py-2 cursor-pointer">BUY</button>
                         
                     </div>
                 </div>
@@ -48,7 +48,8 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                         <LikeButton book={{
                             key: `/works/${id}`,
                             title: data.title,
-                            cover_id: data.covers[0]
+                            cover_id: data.covers[0],
+                            author_name: [authorName],
                         }} />
                     </div>
                     <p className="flex items-center gap-2"><UserRoundPen className="bg-[#02304710] size-7.5 p-1.5 rounded-full" /> {authorName}</p>
@@ -59,7 +60,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                         <p> {edition.publishers && (<span><span className="mr-2 font-medium">Publisher:</span> {edition.publishers.join(", ")}</span>)}</p>
                         <div className="border-r h-7 border-[#02304761]"></div>
                         <p> {edition.languages && (<span className="flex"><span className="mr-2"><Languages /></span>{edition.languages[0].key.split("/").pop()}</span>)}</p>
-                        <div className="border-r h-7 border-[#02304761]"></div>
+                         {edition.languages && (<div className="border-r h-7 border-[#02304761]"></div>)} 
                         <p className="flex gap-2"><BookOpenText /> pages {edition.number_of_pages}</p>
 
                     </div>
