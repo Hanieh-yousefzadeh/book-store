@@ -16,6 +16,7 @@ export default function Header() {
     const dispatch = useDispatch<dispatch>()
     const router = useRouter()
     const user = useSelector((state: stateType) => state.auth.user)
+    const totalQuantity = useSelector((state: stateType) => state.cart.items.reduce((total , item) => total + item.quantity, 0))
 
     function handleLogout() {
         dispatch(logout())
@@ -43,7 +44,12 @@ export default function Header() {
 
                     {/* <Link href="/profile">Profile</Link> */}
 
-                    <Link href="/cart"><ShoppingCart /></Link>
+                    <Link href="/cart" className="relative">
+                    <ShoppingCart />
+                    {totalQuantity > 0 && (
+                        <span className="absolute -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs text-white">{totalQuantity}</span>
+                    )}
+                    </Link>
                     <Theme />
                 </div>
             </div>
