@@ -46,7 +46,7 @@ export default function Header() {
 
                     <Link href="/cart" className="relative">
                     <ShoppingCart />
-                    {totalQuantity > 0 && (
+                    {mounted && totalQuantity > 0 && (
                         <span className="absolute -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs text-white">{totalQuantity}</span>
                     )}
                     </Link>

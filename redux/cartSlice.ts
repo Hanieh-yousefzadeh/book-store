@@ -41,8 +41,11 @@ const cartSlice = createSlice({
 
             state.items = state.items.filter((item) => item.key !== action.payload)
 
+        },
+        setCart : (state , action :PayloadAction<CartBook[]>) =>{
+             state.items = action.payload
         }
     }
 })
-export const {addToCart ,increase ,decrease ,deletecart} = cartSlice.actions
+export const {addToCart ,increase ,decrease ,deletecart ,setCart} = cartSlice.actions
 export default cartSlice.reducer
