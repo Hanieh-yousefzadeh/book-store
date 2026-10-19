@@ -1,6 +1,6 @@
 "use client"
 
-import { stateType } from "@/lib/store"
+import { stateType } from "@/redux/store"
 import Link from "next/link"
 import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"

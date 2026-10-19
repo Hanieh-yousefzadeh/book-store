@@ -2,8 +2,8 @@
 
 import { TriangleAlert } from "lucide-react"
 import { useState } from "react"
-import { login } from "@/lib/authSlice"
-import type { dispatch } from "@/lib/store"
+import { login } from "@/redux/authSlice"
+import type { dispatch } from "@/redux/store"
 import { useDispatch } from "react-redux"
 import { useRouter } from "next/navigation"
 

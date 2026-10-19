@@ -1,7 +1,7 @@
 "use client"
 
 import { useSelector } from "react-redux"
-import type { stateType } from "@/lib/store"
+import type { stateType } from "@/redux/store"
 
 
 export default function Profile(){

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import type { stateType, dispatch } from "@/lib/store";
-import { saveFavorites } from "@/lib/favoriteSlice";
+import type { stateType, dispatch } from "@/redux/store";
+import { saveFavorites } from "@/redux/favoriteSlice";
 
 export default function FavoriteSave() {
     const dispatch = useDispatch<dispatch>();
