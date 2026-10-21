@@ -8,12 +8,12 @@ import LatestBook from "@/components/latestbook";
 export default function Home() {
   return (
 
-    <main className="px-10 pb-30 bg-[]">
+    <main className="lg:px-10 px-5 pb-30 ">
       <section>
         <Hero />
 
         <div className="mt-20 flex-col justify-start ">
-          <Link href="/categoris" className="text-xl font-semibold"> Show All Books </Link>
+          <Link href="/categoris" className="sm:text-xl  font-semibold"> Show All Books </Link>
           <div className="border-b-2 w-20 border-[#023d8ada] dark:border-current "></div>
         </div>
         <Suspense fallback={
@@ -24,7 +24,7 @@ export default function Home() {
         </Suspense>
 
         <div className="pt-28">
-          <h2 className="text-xl font-semibold ">Popular</h2>
+          <h2 className="sm:text-xl font-semibold ">Popular</h2>
           <div className="border-b-2 w-17 border-[#023d8ada] dark:border-current "></div>
           <Suspense fallback={
             <div className="flex items-center justify-center pt-60">
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
 
         <div className="pt-28">
-          <h2 className="text-xl font-semibold ">Latest</h2>
+          <h2 className="sm:text-xl font-semibold ">Latest</h2>
           <div className="border-b-2 w-14 border-[#023d8ada] dark:border-current "></div>
           <Suspense fallback={
             <div className="flex items-center justify-center pt-60">

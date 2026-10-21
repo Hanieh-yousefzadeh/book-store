@@ -54,13 +54,13 @@ export default function SearchBook() {
     }
 
     return (
-        <div className=" flex justify-center">
-            <div className="flex w-120 bg-[#FFFFFF] rounded-full">
-                <input type="text" className="outline-none w-120 pl-4 py-3.5 dark:placeholder:text-accent  dark:text-accent" value={search} onChange={handleInput} placeholder="Discover Books. . ." />
+        <div className=" flex justify-center lg:pb-0 sm:pb-10">
+            <div className="flex xl:w-120 lg:w-100  w-50 bg-[#FFFFFF] rounded-full">
+                <input type="text" className="outline-none  xl:w-120  pl-4 py-3.5 dark:placeholder:text-accent sm:placeholder:text-base placeholder:text-sm  dark:text-accent" value={search} onChange={handleInput} placeholder="Discover Books. . ." />
                 {result.length > 0 && (<button onClick={deleteSearch} className="cursor-pointer pr-3 dark:text-accent"><X/></button>)}
             </div>
             {result.length > 0 &&
-                <div className="max-h-50 overflow-y-auto w-120 bottom-18  absolute z-1  grid gap-5 p-5 bg-[#FFFFFF] rounded-2xl">
+                <div className="max-h-50 overflow-y-auto xl:w-120 w-50 lg:bottom-18 bottom-30 sm:-bottom-43  absolute z-1  grid gap-5 p-5 bg-[#FFFFFF] rounded-2xl">
                     {result.map((book) => (
                         <Link key={book.key} onClick={deleteSearch} href={`/book/${book.key.split("/").pop()}`} className="flex items-center" >
                             {book.cover_i ? (<img src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`}  className="rounded-xs"/>) : <img src={`https://covers.openlibrary.org/b/id/240720-S.jpg`} className="rounded-xs" />}

@@ -10,7 +10,7 @@ export default function Footer() {
                 </p>
                 <p className="pt-3 text-sm text-[#1e293bbc] font-medium">Grow your mind.</p>
             </aside>
-            <div className="flex sm:gap-50 gap-5 sm:pr-10">
+            <div className="flex lg:gap-50 sm:gap-15 gap-5 sm:pr-10">
                 <nav className="flex flex-col sm:text-base text-sm">
                     <h6 className="footer-title text-[#1e293bbc] dark:text-[#acb8be]">Services</h6>
                     <a className="link link-hover sm:text-sm text-xs">Design</a>

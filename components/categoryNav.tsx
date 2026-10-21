@@ -7,7 +7,7 @@ export default function CategoryNav() {
     const pathName = usePathname();
 
     return (
-        <div className="sm:flex-row flex flex-col gap-2  sm:gap-16 justify-center sm:text-base text-sm">
+        <div className="sm:flex-row flex flex-col gap-2 sm:gap-5  lg:gap-16 justify-center sm:text-base text-sm">
             <Link href="/categoris/fiction" className={pathName === "/categoris/fiction" ? "text-[#023e8a]  font-bold border-b border-[#023e8a] pb-1 dark:text-[#095dcb] dark:border-[#1069de]" : ""}>Stories & Novels</Link>
             <Link href="/categoris/biology" className={pathName === "/categoris/biology" ? "text-[#023e8a] font-bold border-b border-[#023e8a] pb-1 dark:text-[#095dcb] dark:border-[#1069de]" : ""}>Science & Nature</Link>
             <Link href="/categoris/history" className={pathName === "/categoris/history" ? "text-[#023e8a] font-bold border-b border-[#023e8a] pb-1 dark:text-[#095dcb] dark:border-[#1069de]" : ""}>History</Link>

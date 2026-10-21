@@ -36,7 +36,7 @@ export default function Header() {
 
     return (
         <div className="flex flex-col">
-            <nav className="flex sm:flex-col flex-row justify-between md:pt-8 md:pb-5 py-3 px-3 gap-5 lg:px-10 border border-b-[#023d8a0a] bg-[#02304710] dark:border-b-[#a8ccde54]">
+            <nav className="flex sm:flex-col flex-row justify-between md:pt-8 md:pb-5 py-3 px-3 gap-5 lg:px-10 sm:px-5 border border-b-[#023d8a0a] bg-[#02304710] dark:border-b-[#a8ccde54]">
                 <div className="flex justify-between sm:items-center items-baseline">
                     <Link href="/" className="flex md:text-2xl text-xl font-semibold items-center text-[#023e8a] dark:text-current"><BookOpenCheck className="md:size-9 size:6" strokeWidth={1} />ReadB</Link>
                     <div className="hidden sm:block">
@@ -44,7 +44,7 @@ export default function Header() {
                             <CategoryNav />
                         </Suspense>
                     </div>
-                    <div className="sm:flex sm:gap-5 gap-2 items-center text-[#062b5ced] dark:text-current hidden">
+                    <div className="sm:flex  gap-2  items-center text-[#062b5ced] dark:text-current hidden">
                         <Link href="/favorite"><Heart className="sm:size-auto size-5" /></Link>
                         {mounted && (
                             user ? (<button className="cursor-pointer" onClick={handleLogout}><LogOut className="sm:size-auto size-5" /></button>) : (<Link href="/login"><LogIn className="sm:size-auto size-5" /></Link>)
@@ -61,7 +61,7 @@ export default function Header() {
                         <Theme />
                     </div>
                 </div>
-                <div className="flex gap-3 items-baseline">
+                <div className=" sm:hidden flex gap-3 items-baseline">
 
                     <button onClick={handelClick} className="lg:hidden ">
                         {isOpen ? (<X className="p-0.5 w-7 h-6 sm:w-9 sm:h-8 rounded-sm text-[#062b5ced] border border-[#062b5ced]  dark:bg-[#17123d] dark:border-indigo-400 dark:text-indigo-300" />)
