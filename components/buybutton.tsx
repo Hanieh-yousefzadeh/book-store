@@ -26,7 +26,7 @@ export default function BuyButton({ book }: PropButton) {
                 <span className=" py-1 font-semibold">${book.price.toFixed(1)}</span>
                 {quantity > 0 && (<span className="text-lg">(<span className="px-1 font-semibold">{quantity}</span>)</span>)}
             </div>
-            <button onClick={handleButton} className=" text-[#E6E7E4] bg-[#02306bd7] rounded-lg py-2 cursor-pointer">Buy</button>
+            <button onClick={handleButton} className=" text-[#E6E7E4] bg-[#02306bd7] dark:bg-[#07418f] rounded-lg py-2 cursor-pointer">Buy</button>
         </div>
     )
 }

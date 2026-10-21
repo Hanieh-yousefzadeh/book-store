@@ -46,7 +46,7 @@ export default function Theme() {
     <ActiveIcon />
   </DropdownMenuTrigger>
 
-  <DropdownMenuContent className="text-[#103362]">
+  <DropdownMenuContent className="text-[#103362] dark:text-current">
     <DropdownMenuRadioGroup
       value={theme}
       onValueChange={(value) => setTheme(value)}

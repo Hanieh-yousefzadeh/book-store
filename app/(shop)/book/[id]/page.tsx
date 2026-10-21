@@ -56,15 +56,15 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                             author_name: [authorName],
                         }} />
                     </div>
-                    <p className="flex items-center gap-2"><UserRoundPen className="bg-[#02304710] size-7.5 p-1.5 rounded-full" /> {authorName}</p>
+                    <p className="flex items-center gap-2"><UserRoundPen className="bg-[#02304710] dark:bg-[#4595fd5a] size-7.5 p-1.5 rounded-full" /> {authorName}</p>
 
                     <div className="flex items-center gap-5 pt-1">
 
                         {/* <p className="mt-4"> <span className="mr-2">First published:</span>{data.first_publish_date}  </p> */}
                         <p> {edition.publishers && (<span><span className="mr-2 font-medium">Publisher:</span> {edition.publishers.join(", ")}</span>)}</p>
-                        <div className="border-r h-7 border-[#02304761]"></div>
+                        <div className="border-r h-7 border-[#02304761] dark:border-[#4595fd5a]"></div>
                         <p> {edition.languages && (<span className="flex"><span className="mr-2"><Languages /></span>{edition.languages[0].key.split("/").pop()}</span>)}</p>
-                        {edition.languages && (<div className="border-r h-7 border-[#02304761]"></div>)}
+                        {edition.languages && (<div className="border-r h-7 border-[#02304761] dark:border-[#4595fd5a]"></div>)}
                         <p className="flex gap-2"><BookOpenText /> pages {edition.number_of_pages}</p>
 
                     </div>
@@ -76,7 +76,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                             <div className="flex flex-wrap gap-2 mt-2">
                                 {data.subjects.slice(0, 5).map(
                                     (subject: string) => (
-                                        <span key={subject} className="rounded-full bg-[#02304710] px-3 py-1 text-sm" >
+                                        <span key={subject} className="rounded-full bg-[#02304710] dark:bg-[#4595fd5a] px-3 py-1 text-sm" >
                                             {subject}
                                         </span>
                                     )
@@ -86,9 +86,9 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                     </div>
 
 
-                    <div className="pt-6">
+                    <div className="pt-6 ">
                         <h2 className="font-bold pb-2">Description</h2>
-                        <p className="w-250 bg-[#02304710] p-5 rounded-xl"> {description} </p>
+                        <p className="w-250 bg-[#02304710] dark:border-[#8dc7e44f] dark:border  p-5 rounded-xl"> {description} </p>
                     </div>
 
 
