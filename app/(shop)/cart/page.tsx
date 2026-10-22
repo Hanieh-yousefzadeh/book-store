@@ -15,16 +15,16 @@ export default function CartPagr() {
     const totalQuantity = items.reduce((total, item) => total + item.quantity, 0)
 
     return (
-        <main className="flex flex-col px-10 py-7">
-            <h1 className=" text-2xl font-bold  pt-3 pb-5"> shopping Cart</h1>
-            <div className="flex  justify-between">
-                <div className="flex flex-col w-250">
+        <main className="flex flex-col lg:px-10 px-5 py-7">
+            <h1 className=" text-2xl font-bold  pt-3 pb-5 text-start sm:text-center lg:text-start"> shopping Cart</h1>
+            <div className="flex lg:flex-row flex-col items-center lg:justify-between">
+                <div className="flex flex-col xl:w-250">
 
                     {items.length === 0 && (
-                        <h2 className="text-xl pt-7 text-[#1e293bbc] dark:text-[#a8ccde9d] ">Your cart is Empty.</h2>
+                        <h2 className="text-xl pt-7 text-[#1e293bbc] dark:text-[#a8ccde9d]">Your cart is Empty.</h2>
                     )}
                     {items.map((book) => (
-                        <div key={book.key} className="flex items-center gap-5 border-b border-[#023d8a2f] dark:border-[#a8ccde54] pb-5 mb-5 pt-10">
+                        <div key={book.key} className="flex md:flex-row flex-col items-center gap-5 border-b border-[#023d8a2f] dark:border-[#a8ccde54] pb-5 mb-5 pt-10">
                             {book.cover_id && (
                                 <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} className="w-20 h-28 object-cover rounded" />
                             )}
@@ -34,9 +34,9 @@ export default function CartPagr() {
                                 <h3 className="text-[#1e293bbc] text-sm dark:text-[#a8ccded7]">By{book.author_name}</h3>
 
 
-                                <div className="flex items-center gap-3 pt-5 justify-between">
+                                <div className="flex items-center sm:gap-3 gap-2 pt-5 justify-between">
                                     <p>${book.price.toFixed(1)}</p>
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center sm:gap-3 gap-2">
                                         <button onClick={() => dispatch(decrease(book.key))} className="border border-[#023d8a2f] dark:border-[#a8ccde54] rounded px-2  cursor-pointer" >
                                             -
                                         </button>
@@ -48,10 +48,10 @@ export default function CartPagr() {
                                         </button>
 
                                         <button onClick={() => dispatch(deletecart(book.key))} className="text-red-500 ml-3 cursor-pointer" >
-                                            <Trash />
+                                            <Trash className="sm:size-auto size-6" />
                                         </button>
                                     </div>
-                                    <p className="font-semibold">
+                                    <p className="font-semibold sm:text-base text-sm">
                                         total : ${(book.price * book.quantity).toFixed(1)}
                                     </p>
                                 </div>
@@ -62,7 +62,7 @@ export default function CartPagr() {
                     ))}
                 </div>
 
-                <div className="border border-[#023d8a2f] dark:border-[#a8ccde54] rounded-lg flex flex-col w-90 justify-center items-center gap-5 py-10 min-h-30  max-h-50">
+                <div className="border border-[#023d8a2f] dark:border-[#a8ccde54] rounded-lg flex flex-col lg:w-90 w-full lg:mt-0 mt-10  justify-center items-center gap-5 py-10 min-h-30  max-h-50">
                     <p className=" text-xl font-bold"> Total Price: ${totalPrice.toFixed(1)}</p>
                     <p>Total Quantity : {totalQuantity}</p>
                     {totalPrice > 0 && (
