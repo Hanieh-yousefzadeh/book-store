@@ -33,10 +33,10 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
     const editionsData = await editionsResponse.json()
     const edition = editionsData.entries?.[0]
     return (
-        <div className="px-10 pt-18">
-            <div className="flex gap-9">
+        <div className="lg:px-10 px-5 sm:pt-18 pt-8 lg:pb-0 pb-15">
+            <div className="flex md:flex-row flex-col lg:gap-9 sm:gap-5 items-center">
                 <div className="flex flex-col gap-3">
-                    {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg h-85 w-65" />)}
+                    {data.covers?.[0] && (<img src={`https://covers.openlibrary.org/b/id/${data.covers[0]}-L.jpg`} className=" rounded-lg lg:h-85 md:h-80 h-60 xl:w-65 w-58" />)}
                     <BuyButton book={{
                         key: `/works/${id}`,
                         title: data.title,
@@ -48,7 +48,7 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                 </div>
                 <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between ">
-                        <h1 className="text-3xl font-bold pt-1">{data.title} </h1>
+                        <h1 className="lg:text-3xl sm:text-2xl font-bold pt-1">{data.title} </h1>
                         <LikeButton book={{
                             key: `/works/${id}`,
                             title: data.title,
@@ -86,9 +86,9 @@ export default async function DetailBook({ params }: { params: Promise<{ id: str
                     </div>
 
 
-                    <div className="pt-6 ">
+                    <div className="lg:pt-6 ">
                         <h2 className="font-bold pb-2">Description</h2>
-                        <p className="w-250 bg-[#02304710] dark:border-[#8dc7e44f] dark:border  p-5 rounded-xl"> {description} </p>
+                        <p className="xl:w-250 md:w-100 lg:w-170 bg-[#02304710] dark:border-[#8dc7e44f] dark:border  p-5 rounded-xl"> {description} </p>
                     </div>
 
 

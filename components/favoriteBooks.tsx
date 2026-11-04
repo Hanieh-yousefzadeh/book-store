@@ -25,7 +25,7 @@ export default function FavoriteBooks() {
     console.log(favoriteBooks)
 
     return (
-        <div className="flex px-10 gap-5 pt-3">
+        <div className="flex sm:flex-row flex-wrap items-center lg:justify-start justify-center lg:pb-0 pb-20 lg:px-10 gap-5 pt-3">
             {favoriteBooks.map((book) => (
                 <div key={book.key} className="w-67 border rounded-lg pr-3 pl-5 py-5 hover:-translate-y-3 hover:transition-transform border-[#023d8a2f] dark:border-[#a8ccde54]">
                     <Link href={book.key.replace("/works/", "/book/")} >

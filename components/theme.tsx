@@ -4,70 +4,70 @@ import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { SunMedium, Moon, Monitor } from "lucide-react"
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuRadioGroup,
-    DropdownMenuRadioItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { text } from "stream/consumers"
 
 export default function Theme() {
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-    if (!mounted) {
-        return null
-    }
+  if (!mounted) {
+    return null
+  }
 
-    const themes = [
-        { value: "light", icon: SunMedium },
-        { value: "dark", icon: Moon },
-        { value: "system", icon: Monitor },
-    ]
+  const themes = [
+    { value: "light", icon: SunMedium },
+    { value: "dark", icon: Moon },
+    { value: "system", icon: Monitor },
+  ]
 
-    let ActiveIcon = Monitor
+  let ActiveIcon = Monitor
 
-    if (theme === "light") {
-        ActiveIcon = SunMedium
-    } else if (theme === "dark") {
-        ActiveIcon = Moon
-    }
+  if (theme === "light") {
+    ActiveIcon = SunMedium
+  } else if (theme === "dark") {
+    ActiveIcon = Moon
+  }
 
-    return (
-        <DropdownMenu>
-  <DropdownMenuTrigger>
-    <ActiveIcon />
-  </DropdownMenuTrigger>
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <ActiveIcon />
+      </DropdownMenuTrigger>
 
-  <DropdownMenuContent className="text-[#103362] dark:text-current">
-    <DropdownMenuRadioGroup
-      value={theme}
-      onValueChange={(value) => setTheme(value)}
-    >
-      <DropdownMenuRadioItem value="light">
-        <SunMedium />
-        Light
-      </DropdownMenuRadioItem>
+      <DropdownMenuContent className="text-[#103362] dark:text-current">
+        <DropdownMenuRadioGroup
+          value={theme}
+          onValueChange={(value) => setTheme(value)}
+        >
+          <DropdownMenuRadioItem value="light">
+            <SunMedium />
+            Light
+          </DropdownMenuRadioItem>
 
-      <DropdownMenuRadioItem value="dark">
-        <Moon />
-        Dark
-      </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="dark">
+            <Moon />
+            Dark
+          </DropdownMenuRadioItem>
 
-      <DropdownMenuRadioItem value="system">
-        <Monitor />
-        System
-      </DropdownMenuRadioItem>
-    </DropdownMenuRadioGroup>
-  </DropdownMenuContent>
-</DropdownMenu>
-    )
+          <DropdownMenuRadioItem value="system">
+            <Monitor />
+            System
+          </DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
 
 }
